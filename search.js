@@ -1,0 +1,88 @@
+var key = config.API_KEY;
+var host = config.API_HOST;
+
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": key,
+    "X-RapidAPI-Host": host,
+  },
+};
+
+// let title = "&search=Osomatsu-san";
+let list = document.querySelector("#list");
+let windowResult = document.querySelector(".windowResult");
+
+function searchTitle(title) {
+  fetch(
+    `https://anime-db.p.rapidapi.com/anime?page=1&size=10&search=${title}`,
+    options
+  )
+    .then((response) => response.json())
+    .then((json) => {
+      let corrispondence = [];
+      Object.keys(json).map(function (key) {
+        corrispondence = json[key];
+        showResults(corrispondence);
+      });
+    })
+    .catch((err) => console.error(err));
+}
+
+function showResults(data) {
+  // console.log(list.childNodes.length);
+  for (const key in data) {
+    if (Object.hasOwnProperty.call(data, key)) {
+      const element = data[key];
+      if (typeof element == "object" && !element.length) {
+        //  console.log(element);
+        let div = document.createElement("div");
+        div.classList.add("divContainer");
+        div.setAttribute("data-id", element._id);
+
+        divWrapper = document.createElement("div");
+        divWrapper.classList.add("divWrapper");
+
+        let title = document.createElement("h3");
+        title.classList.add("titleSearch");
+        title.innerText = element.title;
+
+        let img = document.createElement("img");
+        img.src = element.image;
+        img.classList.add("resizeImg");
+        let genres = document.createElement("h4");
+        genres.classList.add("genres");
+        genres.innerText = element.genres;
+
+        list.appendChild(div);
+        div.appendChild(divWrapper);
+        divWrapper.appendChild(title);
+        divWrapper.appendChild(genres);
+        div.appendChild(img);
+      }
+    }
+  }
+}
+
+let resetTimeout = 0;
+
+window.onload = () => {
+  let searchInput = document.querySelector(".search");
+  searchInput.addEventListener("keyup", (e) => {
+    clearTimeout(resetTimeout);
+
+    //empty list and remove visibilty windowResult
+    if (searchInput.value.trim().length === 0) {
+      list.innerHTML = "";
+      windowResult.classList.remove("show");
+      return;
+    } else {
+      windowResult.classList.add("show");
+    }
+
+    resetTimeout = setTimeout(() => {
+      searchTitle(searchInput.value);
+      list.innerHTML = "";
+    }, 250);
+  });
+};

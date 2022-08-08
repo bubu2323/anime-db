@@ -1,0 +1,260 @@
+body {
+  /* overflow-x: hidden; */
+  font-family: "Montserrat", sans-serif;
+}
+:root {
+  --yellow: #f6bd60;
+  --white: #f7ede2;
+  --pink: #f5cac3;
+  --acquamarine: #84a59d;
+  --darkpink: rgba(242, 132, 130, 0.3);
+}
+/* --- CONTAINER --- */
+.container-wrapper {
+  background-color: var(--white);
+  padding: 1em;
+  /* overflow: hidden; */
+}
+/* --- NAV --- */
+nav {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.5em;
+  margin-bottom: 3em;
+}
+/* --- FORM --- */
+div.form__group {
+  display: flex;
+  margin: 0 auto;
+}
+.search-film {
+  margin: 0 auto;
+}
+.form__field {
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: 1px solid var(--darkpink);
+  height: 30px;
+  padding: 0rem 15px;
+}
+.form__label {
+  display: block;
+  font-size: 0.9em;
+}
+label {
+  text-align: center;
+}
+button:hover {
+  cursor: pointer;
+}
+
+.form__field:focus {
+  outline: none;
+}
+/* --- BTN --- */
+button.close {
+  margin: 1em;
+  padding: 0.4em 1em;
+  border: none;
+}
+.rose-btn {
+  border: none;
+  color: #090909;
+  padding: 0 0.7em;
+  margin-left: 0.5em;
+  border-radius: 0.5em;
+  background: var(--darkpink);
+  border: none;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+}
+.randomPageBtn {
+  padding: 0.8em;
+  width: 13em;
+}
+.rndContainer {
+  padding: 1em 0;
+  text-align: center;
+}
+/* --- IMAGES --- */
+div.showFilms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 0.3em 0;
+}
+.film {
+  width: 20em;
+  display: flex;
+  flex-direction: column-reverse;
+  align-self: center;
+  margin: 1em 0;
+  padding: 0.5em 0;
+}
+
+.img-anime {
+  max-width: 80%;
+  border-radius: 0.5em;
+  margin: 0 auto;
+  height: 70%;
+}
+/* --- TYPOGRAPHY --- */
+.title {
+  text-align: center;
+  font-weight: 700;
+}
+h3.genres-modal {
+  font-size: 1.3em;
+  padding: 0.5em 0.2em;
+}
+h3.titleSerie {
+  margin-bottom: 0.6em;
+  font-weight: 600;
+}
+h2.title-modal {
+  font-weight: bolder;
+  padding: 0.2em;
+}
+h4.status-modal {
+  font-size: 1.2em;
+  padding-left: 0.2em;
+  padding-bottom: 0.5em;
+  font-style: italic;
+}
+
+hr {
+  margin: 0 auto;
+  width: 20em;
+  border-top: 2px solid var(--darkpink);
+}
+/* --- FOOTER --- */
+footer.end {
+  background-color: rgb(255, 220, 236);
+  padding: 0.5em;
+  width: 100%;
+  color: var(--acquamarine);
+  position: absolute;
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  color: var(--acquamarine);
+}
+#heart {
+  color: red;
+  font-size: 1.2em;
+}
+/* --- MODAL --- */
+#modal {
+  border: none;
+  width: 90%;
+  text-align: center;
+  padding: 1em 1.5em;
+}
+dialog::backdrop {
+  backdrop-filter: blur(2px);
+}
+p.description-modal {
+  font-weight: 500;
+}
+
+/* --- SEARCH RESULTS --- */
+.windowResult {
+  display: none;
+  margin: -1em auto 1em;
+  font-size: 1em;
+  /* margin-top: -2em; */
+}
+.show {
+  display: block;
+}
+.resizeImg {
+  width: 4em;
+  margin-left: 0.5em;
+}
+.divContainer {
+  background: var(--darkpink);
+  padding: 0.85em;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  border-bottom: 1px solid var(--darkpink);
+}
+
+.divContainer:hover {
+  border: 2px solid var(--acquamarine);
+}
+
+.divWrapper {
+  padding-left: 0.5em;
+}
+
+.divWrapper > h3 {
+  margin-bottom: 0.2em;
+  font-weight: bolder;
+}
+/* --- MEDIA QUERY --- */
+@media screen and (min-width: 768px) {
+  div.showFilms {
+    flex-direction: row;
+    justify-content: baseline;
+  }
+
+  footer {
+    height: 5vh;
+  }
+
+  #modal {
+    width: 100%;
+    z-index: 1;
+    background-color: transparent;
+  }
+  .container-modal {
+    width: 60%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 1em 5em 1em;
+    position: relative;
+    text-align: left;
+  }
+  .img-modal {
+    position: fixed;
+    left: 18vw;
+    top: 2%;
+    transform: translateX(-50%);
+    min-width: 17%;
+  }
+  .windowResult {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .img-modal {
+    padding: 0.5em;
+    min-width: 15%;
+    left: 12vw;
+    top: 1%;
+  }
+  .container-modal {
+    width: 75%;
+    padding: 1em 6em 1em;
+  }
+  .windowResult {
+    width: 50%;
+  }
+  .randomPageBtn {
+    position: absolute;
+    top: 1em;
+    right: 0;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .img-modal {
+    top: 15%;
+    padding: 1.5em;
+  }
+  .windowResult {
+    width: 30%;
+  }
+}
