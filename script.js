@@ -1,4 +1,5 @@
-require("dotenv").config()
+var API_KEY = config.API_KEY;
+
 
 
 let page = "page=1"
@@ -23,7 +24,7 @@ async function getData() {
     {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": process.env.API_KEY,
+        "X-RapidAPI-Key": API_KEY,
         "X-RapidAPI-Host": "anime-db.p.rapidapi.com",
       },
     }
