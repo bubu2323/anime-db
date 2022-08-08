@@ -1,5 +1,5 @@
-var key = config.API_KEY;
-var host = config.API_HOST;
+require("dotenv").config()
+
 
 let page = "page=1"
 //dom elements
@@ -23,8 +23,8 @@ async function getData() {
     {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": key,
-        "X-RapidAPI-Host": host,
+        "X-RapidAPI-Key": process.env.API_KEY,
+        "X-RapidAPI-Host": "anime-db.p.rapidapi.com",
       },
     }
   );
