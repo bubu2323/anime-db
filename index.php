@@ -1,5 +1,5 @@
-<?php
-$API_KEY = '73902f8491mshb1e506f219d57f4p17b303jsnbf31c150965c';
+<?php 
+include_once("key.php")
 ?>
 <!DOCTYPE html>
 <html lang="en">
