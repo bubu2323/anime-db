@@ -1,6 +1,8 @@
+<?php
+$API_KEY = '73902f8491mshb1e506f219d57f4p17b303jsnbf31c150965c';
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +10,9 @@
     <title>Document</title>
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-<!-- css -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <!-- css -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="reset.css">
 </head>
@@ -61,10 +63,12 @@
             </div>
         </div>
     </footer>
-   
-    <script type='text/javascript' src='config.js'></script>
-    <script src="./script.js"></script>
-    <script src="./search.js"></script>
+    <script>
+        const API_KEY = <?php echo json_encode($API_KEY)?>;
+    </script>
+    <script src="script/request_key.js"></script>
+    <script src="script/script.js"></script>
+    <script src="script/search.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,3 @@
-var API_KEY = config.API_KEY;
-
-
-
 let page = "page=1"
 //dom elements
 let modal = document.querySelector("#modal");

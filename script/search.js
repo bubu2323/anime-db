@@ -1,15 +1,11 @@
-var API_KEY = config.API_KEY;
-
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": API_KEY
-    ,
+    "X-RapidAPI-Key": API_KEY,
     "X-RapidAPI-Host": "anime-db.p.rapidapi.com",
   },
 };
 
-// let title = "&search=Osomatsu-san";
 let list = document.querySelector("#list");
 let windowResult = document.querySelector(".windowResult");
 
@@ -30,7 +26,6 @@ function searchTitle(title) {
 }
 
 function showResults(data) {
-  // console.log(list.childNodes.length);
   for (const key in data) {
     if (Object.hasOwnProperty.call(data, key)) {
       const element = data[key];
@@ -83,6 +78,6 @@ window.onload = () => {
     resetTimeout = setTimeout(() => {
       searchTitle(searchInput.value);
       list.innerHTML = "";
-    }, 250);
+    }, 450);
   });
 };
