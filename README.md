@@ -7,7 +7,7 @@ This application allows you to show the most popular anime, to search for one by
 
 ## Live site and screenshot
 
-![screenshot app](https://assets.digitalocean.com/articles/alligator/boo.svg "anime app")
+![screenshot app](screen.png "anime app")
 <a  href="http://anime-db.epizy.com/?i=1">Live site</a>
 [Code](https://github.com/bubu2323/anime-db)
 
