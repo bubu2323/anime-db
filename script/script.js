@@ -1,4 +1,4 @@
-let page = "page=1"
+let page = "page=1";
 //dom elements
 let modal = document.querySelector("#modal");
 let openModal = document.querySelector(".open");
@@ -9,9 +9,7 @@ let genresModal = document.querySelector(".genres-modal");
 let descriptionModal = document.querySelector(".description-modal");
 let img = document.getElementsByClassName("img-anime");
 let containerModal = document.querySelector(".container-modal");
-
-
-
+let showFilmsContainer = document.querySelector(".showFilms");
 
 //fetch data
 async function getData() {
@@ -79,16 +77,18 @@ getData();
 
 // show data in homepage
 function showFilms(data) {
-  // console.log(data);
+  if (document.querySelector(".loader")) {
+    document.querySelector(".loader").remove();
+  }
+
   let results = data.data;
-  let showFilms = document.querySelector(".showFilms");
 
   results.forEach((result) => {
     let title = result.title;
     let img = result.image;
     let filmContainer = document.createElement("div");
     filmContainer.classList.add("film");
-    showFilms.appendChild(filmContainer);
+    showFilmsContainer.appendChild(filmContainer);
 
     let filmImg = document.createElement("img");
     filmContainer.appendChild(filmImg);
@@ -97,7 +97,7 @@ function showFilms(data) {
     filmImg.setAttribute("data-id", result._id);
 
     let titleSerie = document.createElement("h3");
-    titleSerie.classList.add('titleSerie')
+    titleSerie.classList.add("titleSerie");
     filmContainer.appendChild(titleSerie);
     titleSerie.innerText = title;
   });
@@ -108,14 +108,22 @@ closeModal.addEventListener("click", () => {
   modal.close();
 });
 
-// random page generator
+// generate specific anime
+document.querySelector(".buttonsShow").addEventListener("click", (e) => {
+  showFilmsContainer.innerText = "";
+  let loader = document.createElement("div");
+  loader.classList.add("loader");
+  showFilmsContainer.appendChild(loader);
 
-document.querySelector(".randomPageBtn").addEventListener("click", () => {
-  document.querySelector(".showFilms").innerText = '';
-  document.querySelector('h1').innerText = 'Some random anime'
-  page = `page=${randomInteger(1, 1000)}`;
+  if (e.target.className === "rose-btn randomPageBtn") {
+    document.querySelector("h1").innerText = "Some random anime";
+    page = `page=${randomInteger(1, 1000)}`;
+  } else {
+    document.querySelector("h1").innerText = "Most popular anime";
+    page = `page=1`;
+  }
   getData();
-})
+});
 
 //utilis functions
 function hasClass(elem, className) {
@@ -127,5 +135,4 @@ function randomInteger(min, max) {
 
 document.querySelector(".search").addEventListener("keydown", (e) => {
   if (e.keyCode == 13) e.preventDefault();
-  })
-  
+});

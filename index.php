@@ -1,13 +1,14 @@
-<?php 
+<?php
 include_once("key.php")
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Anime app</title>
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +20,7 @@ include_once("key.php")
 
 <body>
     <div class="container-wrapper">
+        <span id="error"></span>
         <nav>
             <!-- <ul>
                 <li>Home</li>
@@ -38,10 +40,15 @@ include_once("key.php")
         <h1 class="title">Most popular anime</h1>
         <hr>
         <div class="showFilms">
-
+            <div class="loader">Loading...</div>
         </div>
-        <div class="rndContainer">
-            <button class="rose-btn randomPageBtn">show random anime</button>
+        <div class="flex buttonsShow">
+            <div class="rndContainer">
+                <button class="rose-btn randomPageBtn">show random anime</button>
+            </div>
+            <div class="rndContainer">
+                <button class="rose-btn popularBtn ">show popular anime</button>
+            </div>
         </div>
     </div>
 
@@ -64,9 +71,8 @@ include_once("key.php")
         </div>
     </footer>
     <script>
-        const API_KEY = <?php echo json_encode($API_KEY)?>;
+        const API_KEY = <?php echo json_encode($API_KEY) ?>;
     </script>
-    <script src="script/request_key.js"></script>
     <script src="script/script.js"></script>
     <script src="script/search.js"></script>
 </body>

@@ -5,7 +5,6 @@ const options = {
     "X-RapidAPI-Host": "anime-db.p.rapidapi.com",
   },
 };
-
 let list = document.querySelector("#list");
 let windowResult = document.querySelector(".windowResult");
 
@@ -14,6 +13,7 @@ function searchTitle(title) {
     `https://anime-db.p.rapidapi.com/anime?page=1&size=10&search=${title}`,
     options
   )
+    .then(checkStatus)
     .then((response) => response.json())
     .then((json) => {
       let corrispondence = [];
@@ -22,7 +22,19 @@ function searchTitle(title) {
         showResults(corrispondence);
       });
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      document.querySelector("#error").innerText = `error: ${err}`;
+      
+    }
+  )
+}
+ 
+function checkStatus(response) {
+  if (!response.ok || response.status != 200) {
+    throw new Error(`${response.statusText}cannot load resource`);
+  }
+  
+return response;
 }
 
 function showResults(data) {
@@ -30,7 +42,7 @@ function showResults(data) {
     if (Object.hasOwnProperty.call(data, key)) {
       const element = data[key];
       if (typeof element == "object" && !element.length) {
-        //  console.log(element);
+         console.log(element);
         let div = document.createElement("div");
         div.classList.add("divContainer");
         div.setAttribute("data-id", element._id);
@@ -49,11 +61,18 @@ function showResults(data) {
         genres.classList.add("genres");
         genres.innerText = element.genres;
 
+        let info = document.createElement("a");
+        info.classList.add("link");
+        info.innerText = "more info...";
+        info.href = element.link;
+
         list.appendChild(div);
         div.appendChild(divWrapper);
         divWrapper.appendChild(title);
         divWrapper.appendChild(genres);
         div.appendChild(img);
+        divWrapper.appendChild(info);
+        
       }
     }
   }
@@ -81,3 +100,4 @@ window.onload = () => {
     }, 450);
   });
 };
+

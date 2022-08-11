@@ -1,11 +1,7 @@
-<a  name="readme-top"></a>
+  <a  name="readme-top"></a>
 
-<div  align="center">
-<a  href="https://github.com/github_username/repo_name">
-</a>
-</div>
- 
-<h3  align="center">Anime app</h3>
+<h1  align="center">Anime app</div>
+
 <p  align="center">
 This application allows you to show the most popular anime, to search for one by title and to show some random ones. Take advantage of RapidApi's free "Anime db" API.<p>
 
