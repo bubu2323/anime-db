@@ -42,7 +42,7 @@ function showResults(data) {
     if (Object.hasOwnProperty.call(data, key)) {
       const element = data[key];
       if (typeof element == "object" && !element.length) {
-         console.log(element);
+        //  console.log(element);
         let div = document.createElement("div");
         div.classList.add("divContainer");
         div.setAttribute("data-id", element._id);
