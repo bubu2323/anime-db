@@ -1,8 +1,8 @@
   <a  name="readme-top"></a>
 
-<h1  align="center">Anime app</div>
+<h1 align="center">Anime app</h1>
 
-<p  align="center">
+<p>
 This application allows you to show the most popular anime, to search for one by title and to show some random ones. Take advantage of RapidApi's free "Anime db" API.<p>
 
 ## Live site and screenshot
