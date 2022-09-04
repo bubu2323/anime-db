@@ -1,3 +1,4 @@
+import  KEY  from "./api_js.js";
 let page = "page=1";
 //dom elements
 let modal = document.querySelector("#modal");
@@ -18,7 +19,7 @@ async function getData() {
     {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": API_KEY,
+        "X-RapidAPI-Key": KEY,
         "X-RapidAPI-Host": "anime-db.p.rapidapi.com",
       },
     }
@@ -38,14 +39,14 @@ async function getData() {
 
         //iterate the obj
         const alteredKeys = {};
-
+       // gives an array with enumerable property key-value pairs    
         for (const [key, nested] of Object.entries(data)) {
           for (const [i, value] of Object.entries(nested)) {
             if (!alteredKeys[i]) alteredKeys[i] = {};
             alteredKeys[i][key] = value;
           }
         }
-
+        //returns only the values of the obj
         const transformed = Object.values(alteredKeys);
 
         transformed.forEach((element) => {

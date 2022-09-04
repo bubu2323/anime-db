@@ -58,7 +58,7 @@ button.close {
   outline: none;
 }
 
-.popularBtn,.randomPageBtn {
+.popularBtn,.randomPageBtn, .myListBtn {
   padding: 0.8em;
   width: 13em;
 }
@@ -351,6 +351,12 @@ p.description-modal {
   .randomPageBtn {
     position: absolute;
     top: 1em;
+    right: 0;
+    border: none;
+  }
+  .myListBtn{
+    position: absolute;
+    top:9em;
     right: 0;
     border: none;
   }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watchlist</title>
+    <!-- UL KIT -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.6/dist/css/uikit.min.css" />
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.6/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.6/dist/js/uikit-icons.min.js"></script>
+</head>
+
+<body>
+    <div class="uk-container uk-margin-top">
+        <div>
+            <h1>Watchlist</h1>
+        </div>
+        <form method="POST" class="uk-form-stacked">
+            <fieldset class="uk-fieldset">
+                <legend class="uk-legend">insert an anime to your watchlist (title suggestion is active)</legend>
+                <div class="uk-margin">
+
+                    <label for="title">Title anime:</label>
+                    <input list="titleAnime" name="title" id="title" class="uk-input " placeholder="Steins Gate" />
+                    <datalist id="titleAnime"></datalist>
+                </div>
+                <div class="uk-margin">
+                    <label for="genre">Genre:
+                        <select name="genres" id="genres" class="uk-select">Genre
+                            <option value="" disabled selected>select genre</option>
+                        </select>
+                    </label>
+                </div>
+                <!-- <div class="uk-margin"> -->
+                <p>Status anime:</p>
+                <input type="radio" name="status" value="finished" class="uk-radio">
+                <label for="finished">finished</label><br>
+                <input type="radio" name="status" value="progress" class="uk-radio">
+                <label for="progress">in progress</label><br>
+                <input type="radio" name="status" class="uk-radio" value="unknow">
+                <label for="unknow">I don't know</label><br>
+                <div class="uk-margin">
+                    <button type="submit" class="uk-button uk-button-default" id="send">Save in list</button>
+                </div>
+            </fieldset>
+        </form>
+
+    </div>
+
+    <!-- table watchlist -->
+    <div class="uk-container">
+        <h3>My List</h3>
+        <table class="uk-table uk-table-hover uk-table-divider">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Genre</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <script type="module" src="script/api_js.js"></script>
+    <script type="module" src="script/towatch.js"></script>
+
+
+
+
+</body>
+
+</html>

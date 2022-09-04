@@ -1,7 +1,8 @@
+import KEY from "./api_js.js";
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": API_KEY,
+    "X-RapidAPI-Key": KEY,
     "X-RapidAPI-Host": "anime-db.p.rapidapi.com",
   },
 };
@@ -19,35 +20,36 @@ function searchTitle(title) {
       let corrispondence = [];
       Object.keys(json).map(function (key) {
         corrispondence = json[key];
+
         showResults(corrispondence);
       });
     })
     .catch((err) => {
       document.querySelector("#error").innerText = `error: ${err}`;
-      
-    }
-  )
+    });
 }
- 
+
 function checkStatus(response) {
   if (!response.ok || response.status != 200) {
     throw new Error(`${response.statusText}cannot load resource`);
   }
-  
-return response;
+
+  return response;
 }
 
 function showResults(data) {
   for (const key in data) {
+    console.log("riga 44");
     if (Object.hasOwnProperty.call(data, key)) {
       const element = data[key];
       if (typeof element == "object" && !element.length) {
         //  console.log(element);
+        console.log("riga 49");
         let div = document.createElement("div");
         div.classList.add("divContainer");
         div.setAttribute("data-id", element._id);
 
-        divWrapper = document.createElement("div");
+        let divWrapper = document.createElement("div");
         divWrapper.classList.add("divWrapper");
 
         let title = document.createElement("h3");
@@ -72,7 +74,6 @@ function showResults(data) {
         divWrapper.appendChild(genres);
         div.appendChild(img);
         divWrapper.appendChild(info);
-        
       }
     }
   }
@@ -100,4 +101,3 @@ window.onload = () => {
     }, 450);
   });
 };
-
