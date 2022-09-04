@@ -1,13 +1,13 @@
   <a  name="readme-top"></a>
 
-<h1  align="center">Anime app</div>
+<h1 align="center">Anime app</h1>
 
-<p  align="center">
+<p>
 This application allows you to show the most popular anime, to search for one by title and to show some random ones. Take advantage of RapidApi's free "Anime db" API.<p>
 
 ## Live site and screenshot
 
-![screenshot app](https://assets.digitalocean.com/articles/alligator/boo.svg "anime app")
+![screenshot app](/screen1.png "anime app")
 <a  href="http://anime-db.epizy.com/?i=1">Live site</a>
 [Code](https://github.com/bubu2323/anime-db)
 
