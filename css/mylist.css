@@ -1,0 +1,27 @@
+:root {
+    --yellow: #f6bd60;
+    --white: #f7ede2;
+    --pink: #f5cac3;
+    --acquamarine: #84a59d;
+    --darkpink: rgba(242, 132, 130, 0.3);
+  }
+
+  html{
+    font-family: "Montserrat", sans-serif;
+    /* background-color: var(--darkpink); */
+
+  }
+button.rose-btn{
+    padding: 0.8em;
+  width: 13em;
+  outline: none;
+  border: none;
+  color: #090909;
+  padding: 0.7em;
+  border-radius: 0.2em;
+  background: var(--darkpink);
+  box-shadow: 4px 4px 10px #c5c5c5, 2px 2px 5px rgba(0, 0, 0, 0.237);
+}
+button:hover{
+    cursor: pointer;
+}

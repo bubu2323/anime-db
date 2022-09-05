@@ -12,19 +12,21 @@
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.6/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.6/dist/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="./css/mylist.css">
 </head>
 
 <body>
     <div class="uk-container uk-margin-top">
         <div>
-            <h1>Watchlist</h1>
+            <h1>Watchlist(beta)</h1>
         </div>
         <form method="POST" class="uk-form-stacked">
             <fieldset class="uk-fieldset">
-                <legend class="uk-legend">insert an anime to your watchlist (title suggestion is active)</legend>
+                <legend class="uk-legend">insert an anime to your watchlist</legend>
                 <div class="uk-margin">
 
                     <label for="title">Title anime:</label>
+                    <!-- <p>(title suggestion is active only on desktop)</p> -->
                     <input list="titleAnime" name="title" id="title" class="uk-input " placeholder="Steins Gate" />
                     <datalist id="titleAnime"></datalist>
                 </div>
@@ -44,15 +46,15 @@
                 <input type="radio" name="status" class="uk-radio" value="unknow">
                 <label for="unknow">I don't know</label><br>
                 <div class="uk-margin">
-                    <button type="submit" class="uk-button uk-button-default" id="send">Save in list</button>
+                    <button type="submit" class="rose-btn uk-margin-top" id="send">Save in list</button>
                 </div>
             </fieldset>
         </form>
 
-    </div>
 
-    <!-- table watchlist -->
-    <div class="uk-container">
+
+        <!-- table watchlist -->
+
         <h3>My List</h3>
         <table class="uk-table uk-table-hover uk-table-divider">
             <thead>
@@ -65,7 +67,11 @@
             <tbody>
             </tbody>
         </table>
+
+        <!-- home button -->
+        <a href="index.html"><button class="return rose-btn uk-margin-top">Return to home page</button></a>
     </div>
+
 
     <script type="module" src="script/api_js.js"></script>
     <script type="module" src="script/towatch.js"></script>
