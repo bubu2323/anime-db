@@ -92,8 +92,6 @@ function populateTable() {
     status: document.querySelector('input[name="status"]:checked').value,
   };
   data.push(anime);
-  // console.log(data);
-
   for (const key in data) {
     console.log(data[key].title);
     tbody += "<tr>";
@@ -104,4 +102,30 @@ function populateTable() {
   }
   tbody += "</tbody>";
   document.querySelector("tbody").innerHTML = tbody;
+
+  //store values in localstorage, when page reload allow to save data
+  let existingData = JSON.parse(localStorage.getItem("shows"));
+  if (existingData == null) existingData = [];
+  existingData.push(data);
+  localStorage.setItem("shows", JSON.stringify(existingData));
 }
+window.addEventListener("load", () => {
+  let stored = JSON.parse(localStorage.getItem("shows"));
+  let tbody = "<tbody>";
+
+
+  for (const num in stored) {
+    for (const show in num) {
+       console.log(stored[num][show]);
+        tbody += "<tr>";
+        tbody += `<td> ${stored[num][show].title}</td>`;
+        tbody += `<td> ${stored[num][show].genre}</td>`;
+        tbody += `<td> ${stored[num][show].status}</td>`;
+        tbody += "</tr>";
+        console.log(stored[num][show].title);
+      
+    }
+    tbody += "</tbody>";
+    document.querySelector("tbody").innerHTML = tbody;
+  }
+});
