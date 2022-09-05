@@ -19,7 +19,7 @@ Retrieving data from the API using the fetch was not particularly complicated es
 Implementing the modal part was easy, especially thanks to the html tag  `dialog`
 
 Once this part was finished, I decided I wanted to implement the search bar as well and, since I initially thought of making the project only with Javascript, I implemented the function without using a back-end language and therefore I created a function that starts when the user writes the title to search for.
-Finally, to hide the API key, I found a solution that sees the use of PHP to store it and pass it to Javascript. This last part took me a long time because I had no knowledge of the security criteria.</p>
+Finally, to hide the API key, I found a solution that sees the use of import/export to store it and pass it to Javascript. This last part took me a long time because I had no knowledge of the security criteria.</p>
 
 <p  align="right"><a  href="#readme-top">back to top</a></p>
 
@@ -28,7 +28,6 @@ Finally, to hide the API key, I found a solution that sees the use of PHP to sto
 - HTML 5
 - CSS
 - Javascript
-- PHP
 
 ### sources:
 
