@@ -40,8 +40,6 @@ async function suggestTitle(title) {
 }
 send.addEventListener("click", (e) => {
   e.preventDefault();
-  // console.log(titleAnime.value);
-  // title = titleAnime.value;
   populateTable();
 });
 
@@ -69,8 +67,6 @@ function showTitle(data) {
   }
   //returns only the values of the obj
   const transformed = Object.values(alteredKeys);
-  // console.log(transformed)
-
   transformed.forEach((element) => {
     let elem = element.data;
     //create the option in the datalist for suggesting
@@ -82,26 +78,86 @@ function showTitle(data) {
     }
   });
 }
-let data = [];
 
 function populateTable() {
+  let tbody = document.querySelector("tbody");
+
+  addNewAnime();
+  let stored = JSON.parse(localStorage.getItem("animeList"));
+  let latestInserted = stored.at(0);
+  let tr = document.createElement("tr");
+  tr.dataset.position = latestInserted.id;
+  let title = document.createElement("td");
+  title.innerText = latestInserted.title;
+  let genre = document.createElement("td");
+  genre.innerText = latestInserted.genre;
+  let status = document.createElement("td");
+  status.innerText = latestInserted.status;
+
+  let btnTd =  document.createElement("td");
+  let btn = document.createElement('button');
+  btn.textContent = "Delete";
+  btn.setAttribute('class', 'rose-btn del')
+  tbody.appendChild(tr);
+  tr.appendChild(title);
+ 
+  tr.appendChild(genre);
+  tr.appendChild(status);
+
+  tr.appendChild(btnTd);
+  btnTd.appendChild(btn)
+}
+window.addEventListener("load", () => {
+  let stored = JSON.parse(localStorage.getItem("animeList"));
   let tbody = "<tbody>";
+
+  for (const num in stored) {
+    tbody += `<tr data-position =${stored[num].id} >`;
+    tbody += `<td class ="titleTd"> ${stored[num].title}</td>`;
+    tbody += `<td> ${stored[num].genre}</td>`;
+    tbody += `<td> ${stored[num].status}</td>`;
+    tbody += `<td> <button class="rose-btn del">Delete</button></td>`;
+    tbody += "</tr>";
+
+    tbody += "</tbody>";
+    document.querySelector("tbody").innerHTML = tbody;
+  }
+});
+//delete element of list
+document.addEventListener("click", function (e) {
+  //delete visibility row
+  if (e.target && e.target.className == "rose-btn del") {
+    let buttonTr = e.target.parentNode;
+    let indexElem = e.target.parentNode.parentNode.dataset.position;
+    let parent = buttonTr.parentNode;
+    //unique num element
+    let stored = JSON.parse(localStorage.getItem("animeList"));
+    stored.splice(stored[indexElem], 1);
+    localStorage.setItem("animeList", JSON.stringify(stored));
+
+    parent.innerHTML = '';
+  }
+});
+//closure to create an increment id for each element added 
+let increment = (function (n) {
+  return function () {
+    n += 1;
+    return n;
+  };
+})(-1);
+
+function addNewAnime() {
+  let animeList = [];
+
   let anime = {
     title: titleAnime.value,
     genre: document.querySelector("#genres").value,
     status: document.querySelector('input[name="status"]:checked').value,
+    id: increment(),
   };
-  data.push(anime);
-  // console.log(data);
-
-  for (const key in data) {
-    console.log(data[key].title);
-    tbody += "<tr>";
-    tbody += `<td> ${data[key].title}</td>`;
-    tbody += `<td> ${data[key].genre}</td>`;
-    tbody += `<td> ${data[key].status}</td>`;
-    tbody += "</tr>";
-  }
-  tbody += "</tbody>";
-  document.querySelector("tbody").innerHTML = tbody;
+  animeList.push(anime);
+  animeList = animeList.concat(
+    JSON.parse(localStorage.getItem("animeList") || "[]")
+  );
+  localStorage.setItem("animeList", JSON.stringify(animeList));
 }

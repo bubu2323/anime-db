@@ -21,6 +21,8 @@ async function getData() {
       headers: {
         "X-RapidAPI-Key": KEY,
         "X-RapidAPI-Host": "anime-db.p.rapidapi.com",
+        // 'Accept': 'application/json',
+        // 'Content-Type': 'application/json'
       },
     }
   );
