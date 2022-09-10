@@ -20,7 +20,6 @@ for (let key in genres) {
 let send = document.querySelector("#send");
 let titleAnime = document.querySelector("#title");
 let title = "";
-
 //fetch data for title research
 async function suggestTitle(title) {
   const response = await fetch(
