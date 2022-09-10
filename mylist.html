@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,4 +83,89 @@
 
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watchlist</title>
+    <!-- UL KIT -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.6/dist/css/uikit.min.css" />
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.6/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.6/dist/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="./css/mylist.css">
+</head>
+
+<body>
+    <div class="uk-container uk-margin-top">
+        <div>
+            <h1>Watchlist(beta)</h1>
+        </div>
+        <form method="POST" class="uk-form-stacked">
+            <fieldset class="uk-fieldset">
+                <legend class="uk-legend">insert an anime to your watchlist</legend>
+                <div class="uk-margin">
+
+                    <label for="title">Title anime:</label>
+                    <!-- <p>(title suggestion is active only on desktop)</p> -->
+                    <input list="titleAnime" name="title" id="title" class="uk-input " placeholder="Steins Gate" />
+                    <datalist id="titleAnime"></datalist>
+                </div>
+                <div class="uk-margin">
+                    <label for="genre">Genre:
+                        <select name="genres" id="genres" class="uk-select">Genre
+                            <option value="" disabled selected>select genre</option>
+                        </select>
+                    </label>
+                </div>
+                <!-- <div class="uk-margin"> -->
+                <p>Status anime:</p>
+                <input type="radio" name="status" value="finished" class="uk-radio">
+                <label for="finished">finished</label><br>
+                <input type="radio" name="status" value="progress" class="uk-radio">
+                <label for="progress">in progress</label><br>
+                <input type="radio" name="status" class="uk-radio" value="unknow">
+                <label for="unknow">I don't know</label><br>
+                <div class="uk-margin">
+                    <button type="submit" class="rose-btn uk-margin-top" id="send">Save in list</button>
+                </div>
+            </fieldset>
+        </form>
+
+
+
+        <!-- table watchlist -->
+
+        <h3>My List</h3>
+        <table class="uk-table uk-table-hover uk-table-divider">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Genre</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <!-- home button -->
+        <a href="index.html"><button class="return rose-btn uk-margin-top">Return to home page</button></a>
+    </div>
+
+
+    <script type="module" src="script/api_js.js"></script>
+    <script type="module" src="script/towatch.js"></script>
+
+
+
+
+</body>
+
+>>>>>>> 8e88f2bfbcc811f0fff3a21ef869c28115e2a795
 </html>
