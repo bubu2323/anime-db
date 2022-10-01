@@ -11,6 +11,8 @@ let descriptionModal = document.querySelector(".description-modal");
 let img = document.getElementsByClassName("img-anime");
 let containerModal = document.querySelector(".container-modal");
 let showFilmsContainer = document.querySelector(".showFilms");
+let containerWrapper = document.querySelector(".container-wrapper");
+let title = document.querySelector("h1");
 
 //fetch data
 async function getData() {
@@ -21,8 +23,6 @@ async function getData() {
       headers: {
         "X-RapidAPI-Key": KEY,
         "X-RapidAPI-Host": "anime-db.p.rapidapi.com",
-        // 'Accept': 'application/json',
-        // 'Content-Type': 'application/json'
       },
     }
   );
@@ -32,7 +32,7 @@ async function getData() {
   const data = await response.json();
 
   showFilms(data);
-
+// if clicked on img
   document.addEventListener(
     "click",
     function (e) {
@@ -41,7 +41,7 @@ async function getData() {
 
         //iterate the obj
         const alteredKeys = {};
-       // gives an array with enumerable property key-value pairs    
+       // gives an array with enumerable property key-value pairs,allow to foreach on result 
         for (const [key, nested] of Object.entries(data)) {
           for (const [i, value] of Object.entries(nested)) {
             if (!alteredKeys[i]) alteredKeys[i] = {};
@@ -117,13 +117,15 @@ document.querySelector(".buttonsShow").addEventListener("click", (e) => {
   let loader = document.createElement("div");
   loader.classList.add("loader");
   showFilmsContainer.appendChild(loader);
-
-  if (e.target.className === "rose-btn randomPageBtn") {
-    document.querySelector("h1").innerText = "Some random anime";
+console.log(e.target.className);
+  if (e.target.className === "rose-btn randomPageBtn link-nav") {
+    title.innerText = "Some random anime";
     page = `page=${randomInteger(1, 1000)}`;
-  } else {
-    document.querySelector("h1").innerText = "Most popular anime";
+    console.log('qui');
+  } else if (e.target.className === "rose-btn popularBtn link-nav") {
+    title.innerText = "Most popular anime";
     page = `page=1`;
+
   }
   getData();
 });
