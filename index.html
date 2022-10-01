@@ -16,20 +16,30 @@
 </head>
 
 <body>
+    <!-- NAV -->
+    <nav id="top-nav">
+        <ul class="ul-nav-top buttonsShow">
+            <li class="logo">
+                <a href="index.html">
+                    <img class="img-logo" src="./logo/logo.png" alt="logo site">
+                </a>
+            </li>
+            <li><a class="rose-btn randomPageBtn link-nav" href="#">random anime</a></li>
+            <li><a href="#" class="rose-btn popularBtn link-nav"> popular anime</a></li>
+            <li><a class="watchlist link-nav" href="mylist.html">watchlist</a></li>
+        </ul>
+    </nav>
     <div class="container-wrapper">
         <span id="error"></span>
-        <nav>
-            <!-- <ul>
-                <li>Home</li>
-                <li>Random film</li>
-            </ul> -->
+
+        <div class="search-div">
             <div class="form__group">
                 <form method="get">
                     <label for="anime" class="form__label">Search anime by title:</label>
                     <input type="text" class="form__field w-100 search" placeholder="Assassination Classroom">
                 </form>
             </div>
-        </nav>
+        </div>
         <div class="windowResult">
             <div id="list"></div>
         </div>
@@ -40,7 +50,7 @@
             <div class="loader">Loading...</div>
         </div>
 
-        <div class="flex buttonsShow">
+        <!-- <div class="flex buttonsShow">
             <div class="rndContainer">
                 <button class="rose-btn randomPageBtn">show random anime</button>
             </div>
@@ -51,7 +61,7 @@
         </div>
         <div class="rndContainer">
             <button class="rose-btn myListBtn" onclick="location.href='mylist.html'">watchlist</button>
-        </div>
+        </div> -->
     </div>
 
     <dialog id="modal">
